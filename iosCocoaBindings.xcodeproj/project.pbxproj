@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EDB23AAC1A1F9E240031D284 /* ObservableTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB23AAB1A1F9E240031D284 /* ObservableTest.swift */; };
+		EDB23AAE1A1F9E490031D284 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB23AAD1A1F9E490031D284 /* Observable.swift */; };
+		EDB23AAF1A1F9E4E0031D284 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB23AAD1A1F9E490031D284 /* Observable.swift */; };
 		EDD1BEF81A1F06B800BA45EA /* iosCocoaBindings.h in Headers */ = {isa = PBXBuildFile; fileRef = EDD1BEF71A1F06B800BA45EA /* iosCocoaBindings.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EDD1BEFE1A1F06B800BA45EA /* iosCocoaBindings.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDD1BEF21A1F06B800BA45EA /* iosCocoaBindings.framework */; };
 		EDD1BF051A1F06B800BA45EA /* iosCocoaBindingsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD1BF041A1F06B800BA45EA /* iosCocoaBindingsTests.swift */; };
@@ -25,6 +28,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EDB23AAB1A1F9E240031D284 /* ObservableTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObservableTest.swift; sourceTree = "<group>"; };
+		EDB23AAD1A1F9E490031D284 /* Observable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		EDD1BEF21A1F06B800BA45EA /* iosCocoaBindings.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = iosCocoaBindings.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDD1BEF61A1F06B800BA45EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EDD1BEF71A1F06B800BA45EA /* iosCocoaBindings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = iosCocoaBindings.h; sourceTree = "<group>"; };
@@ -77,6 +82,7 @@
 				EDD1BEF71A1F06B800BA45EA /* iosCocoaBindings.h */,
 				EDD1BEF51A1F06B800BA45EA /* Supporting Files */,
 				EDD1BF0E1A1F090700BA45EA /* Binding.swift */,
+				EDB23AAD1A1F9E490031D284 /* Observable.swift */,
 			);
 			path = iosCocoaBindings;
 			sourceTree = "<group>";
@@ -93,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				EDD1BF041A1F06B800BA45EA /* iosCocoaBindingsTests.swift */,
+				EDB23AAB1A1F9E240031D284 /* ObservableTest.swift */,
 				EDD1BF021A1F06B800BA45EA /* Supporting Files */,
 			);
 			path = iosCocoaBindingsTests;
@@ -213,6 +220,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EDB23AAE1A1F9E490031D284 /* Observable.swift in Sources */,
 				EDD1BF0F1A1F090700BA45EA /* Binding.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -221,7 +229,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EDB23AAF1A1F9E4E0031D284 /* Observable.swift in Sources */,
 				EDD1BF051A1F06B800BA45EA /* iosCocoaBindingsTests.swift in Sources */,
+				EDB23AAC1A1F9E240031D284 /* ObservableTest.swift in Sources */,
 				EDD1BF101A1F090700BA45EA /* Binding.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -404,6 +414,7 @@
 				EDD1BF0A1A1F06B800BA45EA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		EDD1BF0B1A1F06B800BA45EA /* Build configuration list for PBXNativeTarget "iosCocoaBindingsTests" */ = {
 			isa = XCConfigurationList;
@@ -412,6 +423,7 @@
 				EDD1BF0D1A1F06B800BA45EA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

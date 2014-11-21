@@ -12,43 +12,14 @@ import ObjectiveC
 let bindingContext = UnsafeMutablePointer<()>()
 
 
-public struct ValueChangedEvent<T> {
 
-}
-
-public struct ValueChange<T> {
-    public let oldValue: T
-    public let newValue: T
-}
-
-
-public struct Observable<T> {
-    public var value: T {
-        willSet { willSetValue(newValue, value) }
-        didSet { didSetValue(value, oldValue) }
-    }
-
-    func willSetValue(newValue: T, _ oldValue: T) {
-        ValueChange(oldValue: oldValue, newValue: newValue)
-    }
-
-    func didSetValue(newValue: T, _ oldValue: T) {
-        ValueChange(oldValue: oldValue, newValue: newValue)
-    }
-
-    public init(_ value: T) {
-        self.value = value
-    }
-}
-
-
-public class Binding<T>: NSObject {
+public class Binding: NSObject {
     weak var target: NSObject?
-    var source: Observable<T>
+//    var source: Observable<T>
 
-    public init(source: Observable<T>, target: NSObject, keyPath: String) {
+    public init<T>(source: Observable<T>, target: NSObject, keyPath: String) {
         self.target = target
-        self.source = source
+//        self.source = source
         super.init()
         let options: NSKeyValueObservingOptions = NSKeyValueObservingOptions.New
         self.addObserver(self, forKeyPath: keyPath, options: options, context: bindingContext)
@@ -73,17 +44,17 @@ extension NSObject: NSObjectProtocol {
         return objc_getAssociatedObject(self, &nnicb_bindingKey)
     }
 
-    func nnicb_setBinding<T>(binding: Binding<T>?) {
+    func nnicb_setBinding(binding: Binding?) {
         objc_setAssociatedObject(self, &nnicb_bindingKey, binding, UInt(bitPattern: OBJC_ASSOCIATION_RETAIN_NONATOMIC))
     }
 
     func bind<T>(key: String, to: Observable<T>) {
-        if let binding = nnicb_binding() as? Binding<T> {
+        if let binding = nnicb_binding() as? Binding {
             // remove binding
             binding.releaseBindings(self)
         }
 
-        let binding = Binding<T>(source: to, target: self, keyPath: key)
+        let binding = Binding(source: to, target: self, keyPath: key)
 //        binding.source = to
         nnicb_setBinding(binding)
     }
@@ -92,8 +63,8 @@ extension NSObject: NSObjectProtocol {
 
     }
 
-    func releaseBindings<T>() {
-        if let binding = nnicb_binding() as? Binding<T> {
+    func releaseBindings() {
+        if let binding = nnicb_binding() as? Binding {
             binding.releaseBindings(self)
         }
     }
