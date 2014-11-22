@@ -24,6 +24,8 @@ public struct ValueChangeEvent<T: AnyValueChange> {
 public protocol AnyObservable {
     typealias ValueType
 
+    var value: ValueType { get }
+
     func subscribe(observer: ValueChange<ValueType> -> ())
     func unsubscribe(observer: ValueChange<ValueType> -> ())
 }
@@ -44,18 +46,21 @@ class Subscribers<T> {
 
     }
 
-    func notifyWillChange<T>(event: ValueChange<T>) {
-
-    }
-
-    func notifyDidChange<T>(event: ValueChange<T>) {
+    func notify(event: ValueChange<T>) {
+        for o in observers {
+            o(event)
+        }
     }
 }
 
 
 public struct Observable<T>: AnyObservable {
-    typealias EventHandler = ValueChange<T> -> ()
-    var subscribers = Subscribers<T>()
+    typealias ValueType = T
+    typealias EventHandler = ValueChange<ValueType> -> ()
+
+    var beforeValueChange = Subscribers<T>()
+    var afterValueChange = Subscribers<T>()
+
 
     public var value: T {
         willSet { willSetValue(newValue, value) }
@@ -64,21 +69,23 @@ public struct Observable<T>: AnyObservable {
 
     func willSetValue(newValue: T, _ oldValue: T) {
         let change = ValueChange(oldValue: oldValue, newValue: newValue)
-        subscribers.notifyWillChange(change)
+        beforeValueChange.notify(change)
     }
 
     func didSetValue(newValue: T, _ oldValue: T) {
         let change = ValueChange(oldValue: oldValue, newValue: newValue)
-        subscribers.notifyDidChange(change)
+        afterValueChange.notify(change)
     }
 
 
     public func subscribe(observer: EventHandler) {
-        subscribers.append(observer)
+        beforeValueChange.append(observer)
+        afterValueChange.append(observer)
     }
 
     public func unsubscribe(observer: EventHandler) {
-        subscribers.remove(observer)
+        beforeValueChange.remove(observer)
+        afterValueChange.remove(observer)
     }
 
 
