@@ -9,27 +9,38 @@
 import Foundation
 
 
-public struct ValueChange<T> {
+public protocol AnyValueChange {
+}
+
+public struct ValueChange<T> : AnyValueChange {
     public let oldValue: T
     public let newValue: T
 }
 
-
-public protocol AnyObservable {
-    func subscribe(subscriber: Any)
-    func unsubscribe(subscriber: Any)
+public struct ValueChangeEvent<T: AnyValueChange> {
+    typealias EventHandler = (AnyValueChange) -> ()
 }
 
-class Subscribers {
-    private var observers = [Any]()
+public protocol AnyObservable {
+    typealias ValueType
+
+    func subscribe(observer: ValueChange<ValueType> -> ())
+    func unsubscribe(observer: ValueChange<ValueType> -> ())
+}
+
+
+
+class Subscribers<T> {
+    typealias EventHandler = ValueChange<T> -> ()
+    private var observers = [EventHandler]()
 
     init() {}
 
-    func append(subscriber: Any) {
+    func append(subscriber: EventHandler) {
         observers.append(subscriber)
     }
 
-    func remove(subscriber: Any) {
+    func remove(subscriber: EventHandler) {
 
     }
 
@@ -38,12 +49,13 @@ class Subscribers {
     }
 
     func notifyDidChange<T>(event: ValueChange<T>) {
-
     }
 }
 
+
 public struct Observable<T>: AnyObservable {
-    var subscribers = Subscribers()
+    typealias EventHandler = ValueChange<T> -> ()
+    var subscribers = Subscribers<T>()
 
     public var value: T {
         willSet { willSetValue(newValue, value) }
@@ -61,12 +73,12 @@ public struct Observable<T>: AnyObservable {
     }
 
 
-    public func subscribe(subscriber: Any) {
-        subscribers.append(subscriber)
+    public func subscribe(observer: EventHandler) {
+        subscribers.append(observer)
     }
 
-    public func unsubscribe(subscriber: Any) {
-        subscribers.remove(subscriber)
+    public func unsubscribe(observer: EventHandler) {
+        subscribers.remove(observer)
     }
 
 
@@ -75,10 +87,10 @@ public struct Observable<T>: AnyObservable {
     }
 }
 
-public func += <T: AnyObservable> (inout observable: T, subscriber: Any) {
-    observable.subscribe(subscriber)
+public func += <T: AnyObservable> (inout observable: T, observer: ValueChange<T.ValueType> -> ()) {
+    observable.subscribe(observer)
 }
 
-public func -= <T: AnyObservable> (inout observable: T, subscriber: Any) {
-    observable.unsubscribe(subscriber)
+public func -= <T: AnyObservable> (inout observable: T, observer: ValueChange<T.ValueType> -> ()) {
+    observable.unsubscribe(observer)
 }
