@@ -52,7 +52,15 @@ class Subscribers<T> {
     }
 
     func remove(subscription: EventSubscription<ValueChange<T>>) {
+        var array = observers
+        for (i, e) in enumerate(array) {
+            if subscription == array[i] {
+                array.removeAtIndex(i)
+                break
+            }
+        }
 
+        observers = array
     }
 
     func notify(event: ValueChange<T>) {

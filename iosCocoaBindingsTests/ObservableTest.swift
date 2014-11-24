@@ -8,15 +8,6 @@
 
 import XCTest
 
-class Observer<T> {
-    var value = Optional<T>()
-
-    func observe(v: ValueChange<T>) -> () {
-        debugPrintln("value changed from \(v.oldValue) to \(v.newValue)")
-        value = v.newValue
-    }
-}
-
 class ObservableTest: XCTestCase {
     class TestClass {
         var string = Observable<String>("")
@@ -35,21 +26,22 @@ class ObservableTest: XCTestCase {
 
     func test_observable() {
         let a = TestClass()
-        let observer = Observer<String>()
-
-        let subscription = a.string.subscribe(observer.observe)
+        let subscription = a.string.subscribe {
+            XCTAssert($0.newValue == "the quick brown fox jumped over the lazy dog")
+        }
 
         a.string.value = "the quick brown fox jumped over the lazy dog"
-        XCTAssert(observer.value == "the quick brown fox jumped over the lazy dog")
+
     }
 
     func test_whenAddingAndRemovingSubscription() {
         let a = TestClass()
-        let observer = Observer<String>()
 
         XCTAssert(a.string.beforeValueChange.observerCount == 0)
         XCTAssert(a.string.afterValueChange.observerCount == 0)
-        let subscription = a.string.subscribe(observer.observe)
+        let subscription = a.string.subscribe {
+            debugPrintln($0.newValue)
+        }
 
         XCTAssert(a.string.beforeValueChange.observerCount == 1)
         XCTAssert(a.string.afterValueChange.observerCount == 1)
@@ -62,12 +54,13 @@ class ObservableTest: XCTestCase {
 
     func test_whenAddingAndRemovingSubscriptionViaOperator() {
         let a = TestClass()
-        let observer = Observer<String>()
 
         XCTAssert(a.string.beforeValueChange.observerCount == 0)
         XCTAssert(a.string.afterValueChange.observerCount == 0)
 
-        let subscription = a.string += observer.observe
+        let subscription = a.string += {
+            debugPrintln($0.newValue)
+        }
 
         XCTAssert(a.string.beforeValueChange.observerCount == 1)
         XCTAssert(a.string.afterValueChange.observerCount == 1)

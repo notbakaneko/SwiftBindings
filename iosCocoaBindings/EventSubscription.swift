@@ -10,7 +10,7 @@ import Foundation
 
 
 
-public protocol AnyEventSubscription {
+public protocol AnyEventSubscription : Equatable {
     
 }
 
@@ -21,5 +21,8 @@ public class EventSubscription<T: AnyValueChange>: AnyEventSubscription {
     init(_ handler: EventHandler) {
         self.handler = handler
     }
+}
 
+public func ==<T>(lhs: EventSubscription<T>, rhs: EventSubscription<T>) -> Bool {
+    return lhs === rhs
 }
