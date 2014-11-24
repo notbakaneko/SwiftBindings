@@ -35,7 +35,6 @@ class iosCocoaBindingsTests: XCTestCase {
         super.tearDown()
     }
 
-
     func testSourceChangePropagates() {
         let target = TargetObject()
         let source = SourceObject()

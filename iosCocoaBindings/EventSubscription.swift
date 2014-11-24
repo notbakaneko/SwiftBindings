@@ -10,21 +10,16 @@ import Foundation
 
 
 
-public protocol AnyEventSubscription: Hashable {
-
+public protocol AnyEventSubscription {
+    
 }
 
-public class EventSubscription: AnyEventSubscription {
-    let id: Int
-    init(_ id: Int) {
-        self.id = id
+public class EventSubscription<T: AnyValueChange>: AnyEventSubscription {
+    typealias EventHandler = T -> ()
+
+    let handler: EventHandler
+    init(_ handler: EventHandler) {
+        self.handler = handler
     }
 
-    public var hashValue: Int {
-        return id.hashValue
-    }
-}
-
-public func ==(lhs: EventSubscription, rhs: EventSubscription) -> Bool {
-    return lhs === rhs
 }

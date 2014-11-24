@@ -8,7 +8,20 @@
 
 import XCTest
 
+class Observer<T> {
+    var value = Optional<T>()
+
+    func observe(v: ValueChange<T>) -> () {
+        debugPrintln("value changed from \(v.oldValue) to \(v.newValue)")
+        value = v.newValue
+    }
+}
+
 class ObservableTest: XCTestCase {
+    class TestClass {
+        var string = Observable<String>("")
+    }
+
 
     override func setUp() {
         super.setUp()
@@ -20,16 +33,13 @@ class ObservableTest: XCTestCase {
         super.tearDown()
     }
 
-    func testExample() {
-        // This is an example of a functional test case.
-        XCTAssert(true, "Pass")
-    }
+    func test_observable() {
+        let a = TestClass()
+        let observer = Observer<String>()
 
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measureBlock() {
-            // Put the code you want to measure the time of here.
-        }
-    }
+        let subscription = a.string.subscribe(observer.observe)
 
+        a.string.value = "the quick brown fox jumped over the lazy dog"
+        XCTAssert(observer.value == "the quick brown fox jumped over the lazy dog")
+    }
 }
