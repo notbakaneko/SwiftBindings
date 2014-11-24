@@ -40,6 +40,9 @@ class Subscribers<T> {
 //    typealias EventHandler = AnyValueChange -> ()
     private var observers = [EventSubscription<ValueChange<T>>]()
 
+    // exposed for testing.
+    internal var observerCount: Int { return observers.count }
+
     init() {}
 
     func append(subscriber: EventHandler) -> EventSubscription<ValueChange<T>> {

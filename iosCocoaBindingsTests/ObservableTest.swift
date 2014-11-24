@@ -42,4 +42,39 @@ class ObservableTest: XCTestCase {
         a.string.value = "the quick brown fox jumped over the lazy dog"
         XCTAssert(observer.value == "the quick brown fox jumped over the lazy dog")
     }
+
+    func test_whenAddingAndRemovingSubscription() {
+        let a = TestClass()
+        let observer = Observer<String>()
+
+        XCTAssert(a.string.beforeValueChange.observerCount == 0)
+        XCTAssert(a.string.afterValueChange.observerCount == 0)
+        let subscription = a.string.subscribe(observer.observe)
+
+        XCTAssert(a.string.beforeValueChange.observerCount == 1)
+        XCTAssert(a.string.afterValueChange.observerCount == 1)
+
+        a.string.unsubscribe(subscription)
+
+        XCTAssert(a.string.beforeValueChange.observerCount == 0)
+        XCTAssert(a.string.afterValueChange.observerCount == 0)
+    }
+
+    func test_whenAddingAndRemovingSubscriptionViaOperator() {
+        let a = TestClass()
+        let observer = Observer<String>()
+
+        XCTAssert(a.string.beforeValueChange.observerCount == 0)
+        XCTAssert(a.string.afterValueChange.observerCount == 0)
+
+        let subscription = a.string += observer.observe
+
+        XCTAssert(a.string.beforeValueChange.observerCount == 1)
+        XCTAssert(a.string.afterValueChange.observerCount == 1)
+
+        a.string -= subscription
+
+        XCTAssert(a.string.beforeValueChange.observerCount == 0)
+        XCTAssert(a.string.afterValueChange.observerCount == 0)
+    }
 }
