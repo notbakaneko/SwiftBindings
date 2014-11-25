@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EDACE4F81A2429DA00B0C252 /* ValueChangeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDACE4F71A2429DA00B0C252 /* ValueChangeType.swift */; };
+		EDACE4F91A2429DA00B0C252 /* ValueChangeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDACE4F71A2429DA00B0C252 /* ValueChangeType.swift */; };
 		EDB23AAC1A1F9E240031D284 /* ObservableTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB23AAB1A1F9E240031D284 /* ObservableTest.swift */; };
 		EDB23AAE1A1F9E490031D284 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB23AAD1A1F9E490031D284 /* Observable.swift */; };
 		EDB23AAF1A1F9E4E0031D284 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB23AAD1A1F9E490031D284 /* Observable.swift */; };
@@ -30,6 +32,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EDACE4F71A2429DA00B0C252 /* ValueChangeType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValueChangeType.swift; sourceTree = "<group>"; };
 		EDB23AAB1A1F9E240031D284 /* ObservableTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObservableTest.swift; sourceTree = "<group>"; };
 		EDB23AAD1A1F9E490031D284 /* Observable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		EDB23AB01A20F5EC0031D284 /* EventSubscription.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventSubscription.swift; sourceTree = "<group>"; };
@@ -87,6 +90,7 @@
 				EDD1BF0E1A1F090700BA45EA /* Binding.swift */,
 				EDB23AAD1A1F9E490031D284 /* Observable.swift */,
 				EDB23AB01A20F5EC0031D284 /* EventSubscription.swift */,
+				EDACE4F71A2429DA00B0C252 /* ValueChangeType.swift */,
 			);
 			path = iosCocoaBindings;
 			sourceTree = "<group>";
@@ -225,6 +229,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EDB23AAE1A1F9E490031D284 /* Observable.swift in Sources */,
+				EDACE4F81A2429DA00B0C252 /* ValueChangeType.swift in Sources */,
 				EDB23AB11A20F5EC0031D284 /* EventSubscription.swift in Sources */,
 				EDD1BF0F1A1F090700BA45EA /* Binding.swift in Sources */,
 			);
@@ -239,6 +244,7 @@
 				EDB23AAC1A1F9E240031D284 /* ObservableTest.swift in Sources */,
 				EDD1BF101A1F090700BA45EA /* Binding.swift in Sources */,
 				EDB23AB21A20F5EC0031D284 /* EventSubscription.swift in Sources */,
+				EDACE4F91A2429DA00B0C252 /* ValueChangeType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

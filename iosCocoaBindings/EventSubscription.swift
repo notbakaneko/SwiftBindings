@@ -9,9 +9,8 @@
 import Foundation
 
 
-
 public protocol AnyEventSubscription : Equatable {
-    
+    typealias EventHandler
 }
 
 public class EventSubscription<T: AnyValueChange>: AnyEventSubscription {

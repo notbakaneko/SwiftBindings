@@ -19,17 +19,13 @@ public struct ValueChange<T> : AnyValueChange {
     public let newValue: ValueType
 }
 
-//public struct ValueChangeEvent<T: AnyValueChange> {
-//    typealias ValueType = T
-//    typealias EventHandler = (AnyValueChange) -> ()
-//}
 
 public protocol AnyObservable {
     typealias ValueType
 
     var value: ValueType { get }
 
-    func subscribe(observer: ValueChange<ValueType> -> ()) -> EventSubscription<ValueChange<ValueType>>
+    func subscribe(type: ValueChangeType, observer: ValueChange<ValueType> -> ()) -> EventSubscription<ValueChange<ValueType>>
     func unsubscribe(subscription: EventSubscription<ValueChange<ValueType>>)
 }
 
@@ -93,9 +89,13 @@ public struct Observable<T>: AnyObservable {
     }
 
 
-    public func subscribe(observer: ValueChange<T> -> ()) -> EventSubscription<ValueChange<T>> {
-        beforeValueChange.append(observer)
-        return afterValueChange.append(observer)
+    public func subscribe(type: ValueChangeType, observer: ValueChange<T> -> ()) -> EventSubscription<ValueChange<T>> {
+        switch type {
+        case .Before:
+            return beforeValueChange.append(observer)
+        case .After:
+            return afterValueChange.append(observer)
+        }
     }
 
     public func unsubscribe(subscription: EventSubscription<ValueChange<T>>) {
@@ -110,7 +110,7 @@ public struct Observable<T>: AnyObservable {
 }
 
 public func += <T: AnyObservable>(inout observable: T, observer: ValueChange<T.ValueType> -> ()) -> EventSubscription<ValueChange<T.ValueType>> {
-    return observable.subscribe(observer)
+    return observable.subscribe(.After, observer)
 }
 
 public func -= <T: AnyObservable>(inout observable: T, subscription: EventSubscription<ValueChange<T.ValueType>>) {
