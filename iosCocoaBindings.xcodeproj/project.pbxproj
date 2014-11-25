@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		EDACE4F81A2429DA00B0C252 /* ValueChangeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDACE4F71A2429DA00B0C252 /* ValueChangeType.swift */; };
 		EDACE4F91A2429DA00B0C252 /* ValueChangeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDACE4F71A2429DA00B0C252 /* ValueChangeType.swift */; };
+		EDACE4FB1A24523B00B0C252 /* ValueChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDACE4FA1A24523B00B0C252 /* ValueChange.swift */; };
+		EDACE4FC1A24523B00B0C252 /* ValueChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDACE4FA1A24523B00B0C252 /* ValueChange.swift */; };
 		EDB23AAC1A1F9E240031D284 /* ObservableTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB23AAB1A1F9E240031D284 /* ObservableTest.swift */; };
 		EDB23AAE1A1F9E490031D284 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB23AAD1A1F9E490031D284 /* Observable.swift */; };
 		EDB23AAF1A1F9E4E0031D284 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB23AAD1A1F9E490031D284 /* Observable.swift */; };
@@ -33,6 +35,7 @@
 
 /* Begin PBXFileReference section */
 		EDACE4F71A2429DA00B0C252 /* ValueChangeType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValueChangeType.swift; sourceTree = "<group>"; };
+		EDACE4FA1A24523B00B0C252 /* ValueChange.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValueChange.swift; sourceTree = "<group>"; };
 		EDB23AAB1A1F9E240031D284 /* ObservableTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObservableTest.swift; sourceTree = "<group>"; };
 		EDB23AAD1A1F9E490031D284 /* Observable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
 		EDB23AB01A20F5EC0031D284 /* EventSubscription.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventSubscription.swift; sourceTree = "<group>"; };
@@ -85,11 +88,12 @@
 		EDD1BEF41A1F06B800BA45EA /* iosCocoaBindings */ = {
 			isa = PBXGroup;
 			children = (
-				EDD1BEF71A1F06B800BA45EA /* iosCocoaBindings.h */,
 				EDD1BEF51A1F06B800BA45EA /* Supporting Files */,
 				EDD1BF0E1A1F090700BA45EA /* Binding.swift */,
-				EDB23AAD1A1F9E490031D284 /* Observable.swift */,
 				EDB23AB01A20F5EC0031D284 /* EventSubscription.swift */,
+				EDD1BEF71A1F06B800BA45EA /* iosCocoaBindings.h */,
+				EDB23AAD1A1F9E490031D284 /* Observable.swift */,
+				EDACE4FA1A24523B00B0C252 /* ValueChange.swift */,
 				EDACE4F71A2429DA00B0C252 /* ValueChangeType.swift */,
 			);
 			path = iosCocoaBindings;
@@ -232,6 +236,7 @@
 				EDACE4F81A2429DA00B0C252 /* ValueChangeType.swift in Sources */,
 				EDB23AB11A20F5EC0031D284 /* EventSubscription.swift in Sources */,
 				EDD1BF0F1A1F090700BA45EA /* Binding.swift in Sources */,
+				EDACE4FB1A24523B00B0C252 /* ValueChange.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -240,6 +245,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EDB23AAF1A1F9E4E0031D284 /* Observable.swift in Sources */,
+				EDACE4FC1A24523B00B0C252 /* ValueChange.swift in Sources */,
 				EDD1BF051A1F06B800BA45EA /* iosCocoaBindingsTests.swift in Sources */,
 				EDB23AAC1A1F9E240031D284 /* ObservableTest.swift in Sources */,
 				EDD1BF101A1F090700BA45EA /* Binding.swift in Sources */,

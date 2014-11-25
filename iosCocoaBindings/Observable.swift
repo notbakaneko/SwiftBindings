@@ -9,17 +9,6 @@
 import Foundation
 
 
-public protocol AnyValueChange {
-    typealias ValueType
-}
-
-public struct ValueChange<T> : AnyValueChange {
-    typealias ValueType = T
-    public let oldValue: ValueType
-    public let newValue: ValueType
-}
-
-
 public protocol AnyObservable {
     typealias ValueType
 
