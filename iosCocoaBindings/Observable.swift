@@ -33,16 +33,18 @@ public protocol AnyObservable {
 
 class Subscribers<T> {
     typealias EventHandler = ValueChange<T> -> ()
-//    typealias EventHandler = AnyValueChange -> ()
+    private let type: ValueChangeType
     private var observers = [EventSubscription<ValueChange<T>>]()
 
     // exposed for testing.
     internal var observerCount: Int { return observers.count }
 
-    init() {}
+    init(_ type: ValueChangeType) {
+        self.type = type
+    }
 
     func append(subscriber: EventHandler) -> EventSubscription<ValueChange<T>> {
-        let subscription = EventSubscription(subscriber)
+        let subscription = EventSubscription(type, subscriber)
         observers.append(subscription)
         return subscription
     }
@@ -69,8 +71,8 @@ class Subscribers<T> {
 
 public struct Observable<T>: AnyObservable {
     public typealias ValueType = T
-    var beforeValueChange = Subscribers<T>()
-    var afterValueChange = Subscribers<T>()
+    var beforeValueChange = Subscribers<T>(.Before)
+    var afterValueChange = Subscribers<T>(.After)
 
 
     public var value: T {
@@ -99,8 +101,12 @@ public struct Observable<T>: AnyObservable {
     }
 
     public func unsubscribe(subscription: EventSubscription<ValueChange<T>>) {
-        beforeValueChange.remove(subscription)
-        afterValueChange.remove(subscription)
+        switch subscription.type {
+        case .Before:
+            beforeValueChange.remove(subscription)
+        case .After:
+            afterValueChange.remove(subscription)
+        }
     }
 
 
@@ -109,10 +115,27 @@ public struct Observable<T>: AnyObservable {
     }
 }
 
+/**
+Convenience operator to subscribe to the after change event.
+o += { change in
+}
+
+:param: observable The object to observe.
+:param: observer   The observer function that will respond to the change event.
+
+:returns: An object of the event subscription.
+*/
 public func += <T: AnyObservable>(inout observable: T, observer: ValueChange<T.ValueType> -> ()) -> EventSubscription<ValueChange<T.ValueType>> {
     return observable.subscribe(.After, observer)
 }
 
+/**
+Convenience operator to unsubscribe from a change event.
+o -= subscription
+
+:param: observable   The object to stop observing.
+:param: subscription The subscription object that was created from observing observable.
+*/
 public func -= <T: AnyObservable>(inout observable: T, subscription: EventSubscription<ValueChange<T.ValueType>>) {
     observable.unsubscribe(subscription)
 }

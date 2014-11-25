@@ -16,9 +16,12 @@ public protocol AnyEventSubscription : Equatable {
 public class EventSubscription<T: AnyValueChange>: AnyEventSubscription {
     typealias EventHandler = T -> ()
 
+    let type: ValueChangeType
     let handler: EventHandler
-    init(_ handler: EventHandler) {
+
+    init(_ type: ValueChangeType, _ handler: EventHandler) {
         self.handler = handler
+        self.type = type
     }
 }
 

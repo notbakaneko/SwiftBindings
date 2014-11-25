@@ -9,7 +9,10 @@
 import Foundation
 
 
-public enum ValueChangeType {
+public protocol AnyValueChangeType {
+}
+
+public enum ValueChangeType: AnyValueChangeType {
     case Before
     case After
 }
