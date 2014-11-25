@@ -48,7 +48,7 @@ class Subscribers<T> {
 }
 
 
-public struct Observable<T>: AnyObservable {
+public class Observable<T>: AnyObservable {
     public typealias ValueType = T
     var beforeValueChange = Subscribers<T>(.Before)
     var afterValueChange = Subscribers<T>(.After)
