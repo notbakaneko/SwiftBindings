@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		ED72FEA01A24679300187866 /* AnyObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED72FE9F1A24679300187866 /* AnyObservable.swift */; };
+		ED72FEA11A24679300187866 /* AnyObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED72FE9F1A24679300187866 /* AnyObservable.swift */; };
 		EDACE4F81A2429DA00B0C252 /* ValueChangeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDACE4F71A2429DA00B0C252 /* ValueChangeType.swift */; };
 		EDACE4F91A2429DA00B0C252 /* ValueChangeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDACE4F71A2429DA00B0C252 /* ValueChangeType.swift */; };
 		EDACE4FB1A24523B00B0C252 /* ValueChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDACE4FA1A24523B00B0C252 /* ValueChange.swift */; };
@@ -34,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		ED72FE9F1A24679300187866 /* AnyObservable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyObservable.swift; sourceTree = "<group>"; };
 		EDACE4F71A2429DA00B0C252 /* ValueChangeType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValueChangeType.swift; sourceTree = "<group>"; };
 		EDACE4FA1A24523B00B0C252 /* ValueChange.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValueChange.swift; sourceTree = "<group>"; };
 		EDB23AAB1A1F9E240031D284 /* ObservableTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObservableTest.swift; sourceTree = "<group>"; };
@@ -89,6 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				EDD1BEF51A1F06B800BA45EA /* Supporting Files */,
+				ED72FE9F1A24679300187866 /* AnyObservable.swift */,
 				EDD1BF0E1A1F090700BA45EA /* Binding.swift */,
 				EDB23AB01A20F5EC0031D284 /* EventSubscription.swift */,
 				EDD1BEF71A1F06B800BA45EA /* iosCocoaBindings.h */,
@@ -235,6 +239,7 @@
 				EDB23AAE1A1F9E490031D284 /* Observable.swift in Sources */,
 				EDACE4F81A2429DA00B0C252 /* ValueChangeType.swift in Sources */,
 				EDB23AB11A20F5EC0031D284 /* EventSubscription.swift in Sources */,
+				ED72FEA01A24679300187866 /* AnyObservable.swift in Sources */,
 				EDD1BF0F1A1F090700BA45EA /* Binding.swift in Sources */,
 				EDACE4FB1A24523B00B0C252 /* ValueChange.swift in Sources */,
 			);
@@ -244,6 +249,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED72FEA11A24679300187866 /* AnyObservable.swift in Sources */,
 				EDB23AAF1A1F9E4E0031D284 /* Observable.swift in Sources */,
 				EDACE4FC1A24523B00B0C252 /* ValueChange.swift in Sources */,
 				EDD1BF051A1F06B800BA45EA /* iosCocoaBindingsTests.swift in Sources */,
