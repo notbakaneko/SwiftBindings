@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "EDD1BEF11A1F06B800BA45EA"
-               BuildableName = "iosCocoaBindings.framework"
-               BlueprintName = "iosCocoaBindings"
-               ReferencedContainer = "container:iosCocoaBindings.xcodeproj">
+               BuildableName = "SwiftBindings.framework"
+               BlueprintName = "SwiftBindings"
+               ReferencedContainer = "container:SwiftBindings.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -29,9 +29,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "EDD1BEFC1A1F06B800BA45EA"
-               BuildableName = "iosCocoaBindingsTests.xctest"
-               BlueprintName = "iosCocoaBindingsTests"
-               ReferencedContainer = "container:iosCocoaBindings.xcodeproj">
+               BuildableName = "SwiftBindingsTests.xctest"
+               BlueprintName = "SwiftBindingsTests"
+               ReferencedContainer = "container:SwiftBindings.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -47,9 +47,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "EDD1BEFC1A1F06B800BA45EA"
-               BuildableName = "iosCocoaBindingsTests.xctest"
-               BlueprintName = "iosCocoaBindingsTests"
-               ReferencedContainer = "container:iosCocoaBindings.xcodeproj">
+               BuildableName = "SwiftBindingsTests.xctest"
+               BlueprintName = "SwiftBindingsTests"
+               ReferencedContainer = "container:SwiftBindings.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -57,9 +57,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "EDD1BEF11A1F06B800BA45EA"
-            BuildableName = "iosCocoaBindings.framework"
-            BlueprintName = "iosCocoaBindings"
-            ReferencedContainer = "container:iosCocoaBindings.xcodeproj">
+            BuildableName = "SwiftBindings.framework"
+            BlueprintName = "SwiftBindings"
+            ReferencedContainer = "container:SwiftBindings.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -76,9 +76,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "EDD1BEF11A1F06B800BA45EA"
-            BuildableName = "iosCocoaBindings.framework"
-            BlueprintName = "iosCocoaBindings"
-            ReferencedContainer = "container:iosCocoaBindings.xcodeproj">
+            BuildableName = "SwiftBindings.framework"
+            BlueprintName = "SwiftBindings"
+            ReferencedContainer = "container:SwiftBindings.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -94,9 +94,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "EDD1BEF11A1F06B800BA45EA"
-            BuildableName = "iosCocoaBindings.framework"
-            BlueprintName = "iosCocoaBindings"
-            ReferencedContainer = "container:iosCocoaBindings.xcodeproj">
+            BuildableName = "SwiftBindings.framework"
+            BlueprintName = "SwiftBindings"
+            ReferencedContainer = "container:SwiftBindings.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>
