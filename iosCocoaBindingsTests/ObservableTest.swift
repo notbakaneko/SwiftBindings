@@ -43,6 +43,17 @@ class ObservableTest: XCTestCase {
         a.string.value = "the quick brown fox jumped over the lazy dog"
     }
 
+    func test_observableInt() {
+        var int = Observable<Int>(5)
+
+        let sub = int += {
+            debugPrintln("changing \($0.oldValue) to \($0.newValue)")
+            XCTAssert(int.value == 2)
+        }
+
+        int.value = 2
+    }
+
     func test_whenAddingAndRemovingSubscription_afterValueChange() {
         let a = TestClass()
 

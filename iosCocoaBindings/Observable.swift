@@ -48,29 +48,27 @@ class Subscribers<T> {
 }
 
 
-public struct Observable<T>: AnyObservable {
+public class Observable<T>: MutableObservable {
     public typealias ValueType = T
-    var beforeValueChange = Subscribers<T>(.Before)
-    var afterValueChange = Subscribers<T>(.After)
+    var beforeValueChange = Subscribers<ValueType>(.Before)
+    var afterValueChange = Subscribers<ValueType>(.After)
 
-
-    public var value: T {
+    public var value: ValueType {
         willSet { willSetValue(newValue, value) }
         didSet { didSetValue(value, oldValue) }
     }
 
-    func willSetValue(newValue: T, _ oldValue: T) {
+    func willSetValue(newValue: ValueType, _ oldValue: ValueType) {
         let change = ValueChange(oldValue: oldValue, newValue: newValue)
         beforeValueChange.notify(change)
     }
 
-    func didSetValue(newValue: T, _ oldValue: T) {
+    func didSetValue(newValue: ValueType, _ oldValue: ValueType) {
         let change = ValueChange(oldValue: oldValue, newValue: newValue)
         afterValueChange.notify(change)
     }
 
-
-    public func subscribe(type: ValueChangeType, observer: ValueChange<T> -> ()) -> EventSubscription<ValueChange<T>> {
+    public func subscribe(type: ValueChangeType, observer: ValueChange<ValueType> -> ()) -> EventSubscription<ValueChange<ValueType>> {
         switch type {
         case .Before:
             return beforeValueChange.append(observer)
@@ -79,7 +77,7 @@ public struct Observable<T>: AnyObservable {
         }
     }
 
-    public func unsubscribe(subscription: EventSubscription<ValueChange<T>>) {
+    public func unsubscribe(subscription: EventSubscription<ValueChange<ValueType>>) {
         switch subscription.type {
         case .Before:
             beforeValueChange.remove(subscription)
@@ -88,8 +86,8 @@ public struct Observable<T>: AnyObservable {
         }
     }
 
-
-    public init(_ value: T) {
+    public init(_ value: ValueType) {
         self.value = value
     }
 }
+

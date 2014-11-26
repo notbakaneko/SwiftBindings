@@ -11,6 +11,8 @@ import Foundation
 
 public protocol AnyValueChange {
     typealias ValueType
+    var oldValue: ValueType { get }
+    var newValue: ValueType { get }
 }
 
 public struct ValueChange<T> : AnyValueChange {

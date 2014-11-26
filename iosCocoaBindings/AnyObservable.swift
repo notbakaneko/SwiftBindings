@@ -20,6 +20,11 @@ public protocol AnyObservable {
 }
 
 
+public protocol MutableObservable: AnyObservable {
+    var value: ValueType { get set }
+}
+
+
 /**
 Convenience operator to subscribe to the after change event.
 o += { change in
