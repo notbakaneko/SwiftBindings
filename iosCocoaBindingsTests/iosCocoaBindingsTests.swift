@@ -22,8 +22,8 @@ class SourceObject {
 
 class iosCocoaBindingsTests: XCTestCase {
 
-    var target: TargetObject?
-    var source: SourceObject?
+//    var target: TargetObject?
+//    var source: SourceObject?
 
     override func setUp() {
         super.setUp()
@@ -35,27 +35,15 @@ class iosCocoaBindingsTests: XCTestCase {
         super.tearDown()
     }
 
-    func testSourceChangePropagates() {
-        let target = TargetObject()
-        let source = SourceObject()
+    func test_derp() {
+        let source = TargetObject()
+        let observableSource = KVOObservable<String>(source, "string")
 
-        target.bind("string", to: source.string)
+        observableSource.subscribe(.After) {
+            debugPrintln("changing \($0.oldValue) to \($0.newValue)")
+        }
 
-        source.string.value = "String Value"
-        XCTAssert(source.string.value == target.string, "expect source.string to be == target.string")
-
-        target.releaseBindings()
-    }
-
-    func testTargetChangePropagates() {
-        let target = TargetObject()
-        let source = SourceObject()
-        target.bind("string", to: source.string)
-
-
-        target.string = "String Value"
-        XCTAssert(source.string.value == target.string, "expect source.string to be == target.string")
-
-        target.releaseBindings()
+        source.string = "asd"
+        observableSource.unobserve()
     }
 }
