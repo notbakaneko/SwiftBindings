@@ -25,8 +25,8 @@ public class BasicBinding<T: Equatable>: AnyBinding {
     var source: ObservableType
     var target: ObservableType
 
-    var ss: EventSubscription<ValueChange<T>>?
-    var st: EventSubscription<ValueChange<T>>?
+    var ss: EventSubscription<ValueChange<T?>>?
+    var st: EventSubscription<ValueChange<T?>>?
 
     public init(_ source: ObservableType, _ target: ObservableType) {
         self.source = source
@@ -36,14 +36,14 @@ public class BasicBinding<T: Equatable>: AnyBinding {
         self.st = self.target.subscribe(.After, observer: targetObserver)
     }
 
-    func sourceObserver(change: ValueChange<T>) {
+    func sourceObserver(change: ValueChange<T?>) {
         debugPrintln("changing \(change.oldValue) to \(change.newValue), source: \(source.value)")
         if target.value != change.newValue {
             target.value = change.newValue
         }
     }
 
-    func targetObserver(change: ValueChange<T>) {
+    func targetObserver(change: ValueChange<T?>) {
         debugPrintln("changing \(change.oldValue) to \(change.newValue), target: \(target.value)")
         if source.value != change.newValue {
             source.value = change.newValue

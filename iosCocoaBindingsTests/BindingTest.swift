@@ -28,11 +28,15 @@ class BindingTest: XCTestCase {
         var target = Observable<Int>(-1)
         let binding = BasicBinding<Int>(source, target)
 
-        XCTAssertNotEqual(source.value, target.value)
+        XCTAssertNotNil(source.value)
+        XCTAssertNotNil(target.value)
+        XCTAssert(source.value != target.value)
 
         source.value = 5
 
-        XCTAssertEqual(source.value, target.value)
+        XCTAssertNotNil(source.value)
+        XCTAssertNotNil(target.value)
+        XCTAssert(source.value == target.value)
     }
 
     func test_unbinding() {
@@ -40,10 +44,15 @@ class BindingTest: XCTestCase {
         var target = Observable<Int>(-1)
         let binding = BasicBinding<Int>(source, target)
 
-        XCTAssertNotEqual(source.value, target.value)
+        XCTAssertNotNil(source.value)
+        XCTAssertNotNil(target.value)
+        XCTAssert(source.value != target.value)
+
         binding.unbind()
         source.value = 5
 
-        XCTAssertNotEqual(source.value, target.value)
+        XCTAssertNotNil(source.value)
+        XCTAssertNotNil(target.value)
+        XCTAssert(source.value != target.value)
     }
 }
