@@ -1,6 +1,6 @@
 //
 //  Binding.swift
-//  iosCocoaBindings
+//  SwiftBindings
 //
 //  Created by bakaneko on 21/11/2014.
 //  Copyright (c) 2014 nekonyan. All rights reserved.

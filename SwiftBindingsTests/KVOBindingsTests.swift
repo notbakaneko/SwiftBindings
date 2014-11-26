@@ -1,6 +1,6 @@
 //
-//  iosCocoaBindingsTests.swift
-//  iosCocoaBindingsTests
+//  SwiftBindingsTests.swift
+//  SwiftBindingsTests
 //
 //  Created by bakaneko on 21/11/2014.
 //  Copyright (c) 2014 nekonyan. All rights reserved.
@@ -17,7 +17,7 @@ class TargetObject: NSObject {
 
 
 
-class iosCocoaBindingsTests: XCTestCase {
+class SwiftBindingsTests: XCTestCase {
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.

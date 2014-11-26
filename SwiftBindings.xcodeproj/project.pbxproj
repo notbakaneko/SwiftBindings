@@ -26,7 +26,7 @@
 		EDB23AAC1A1F9E240031D284 /* ObservableTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB23AAB1A1F9E240031D284 /* ObservableTest.swift */; };
 		EDB23AAE1A1F9E490031D284 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB23AAD1A1F9E490031D284 /* Observable.swift */; };
 		EDB23AB11A20F5EC0031D284 /* EventSubscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB23AB01A20F5EC0031D284 /* EventSubscription.swift */; };
-		EDD1BEF81A1F06B800BA45EA /* iosCocoaBindings.h in Headers */ = {isa = PBXBuildFile; fileRef = EDD1BEF71A1F06B800BA45EA /* iosCocoaBindings.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		EDD1BEF81A1F06B800BA45EA /* SwiftBindings.h in Headers */ = {isa = PBXBuildFile; fileRef = EDD1BEF71A1F06B800BA45EA /* SwiftBindings.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EDD1BEFE1A1F06B800BA45EA /* SwiftBindings.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDD1BEF21A1F06B800BA45EA /* SwiftBindings.framework */; };
 		EDD1BF051A1F06B800BA45EA /* KVOBindingsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD1BF041A1F06B800BA45EA /* KVOBindingsTests.swift */; };
 		EDD1BF0F1A1F090700BA45EA /* Binding.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD1BF0E1A1F090700BA45EA /* Binding.swift */; };
@@ -43,23 +43,23 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		ED288A821A2579C400EABD82 /* KVOProxyType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KVOProxyType.swift; sourceTree = "<group>"; };
-		ED288A851A257A4D00EABD82 /* KVOObservable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KVOObservable.swift; sourceTree = "<group>"; };
-		ED72FE9F1A24679300187866 /* AnyObservable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyObservable.swift; sourceTree = "<group>"; };
-		ED72FEA21A246D3200187866 /* BindingTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BindingTest.swift; sourceTree = "<group>"; };
-		EDACE4F71A2429DA00B0C252 /* ValueChangeType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValueChangeType.swift; sourceTree = "<group>"; };
-		EDACE4FA1A24523B00B0C252 /* ValueChange.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValueChange.swift; sourceTree = "<group>"; };
-		EDACE4FD1A245C9800B0C252 /* BindingProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BindingProtocols.swift; sourceTree = "<group>"; };
-		EDB23AAB1A1F9E240031D284 /* ObservableTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObservableTest.swift; sourceTree = "<group>"; };
-		EDB23AAD1A1F9E490031D284 /* Observable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
-		EDB23AB01A20F5EC0031D284 /* EventSubscription.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventSubscription.swift; sourceTree = "<group>"; };
+		ED288A821A2579C400EABD82 /* KVOProxyType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = KVOProxyType.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		ED288A851A257A4D00EABD82 /* KVOObservable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = KVOObservable.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		ED72FE9F1A24679300187866 /* AnyObservable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = AnyObservable.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		ED72FEA21A246D3200187866 /* BindingTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = BindingTest.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		EDACE4F71A2429DA00B0C252 /* ValueChangeType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ValueChangeType.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		EDACE4FA1A24523B00B0C252 /* ValueChange.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ValueChange.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		EDACE4FD1A245C9800B0C252 /* BindingProtocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = BindingProtocols.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		EDB23AAB1A1F9E240031D284 /* ObservableTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ObservableTest.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		EDB23AAD1A1F9E490031D284 /* Observable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Observable.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		EDB23AB01A20F5EC0031D284 /* EventSubscription.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = EventSubscription.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		EDD1BEF21A1F06B800BA45EA /* SwiftBindings.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftBindings.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDD1BEF61A1F06B800BA45EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EDD1BEF71A1F06B800BA45EA /* iosCocoaBindings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = iosCocoaBindings.h; sourceTree = "<group>"; };
+		EDD1BEF71A1F06B800BA45EA /* SwiftBindings.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = SwiftBindings.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		EDD1BEFD1A1F06B800BA45EA /* SwiftBindingsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftBindingsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDD1BF031A1F06B800BA45EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EDD1BF041A1F06B800BA45EA /* KVOBindingsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KVOBindingsTests.swift; sourceTree = "<group>"; };
-		EDD1BF0E1A1F090700BA45EA /* Binding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Binding.swift; sourceTree = "<group>"; };
+		EDD1BF041A1F06B800BA45EA /* KVOBindingsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = KVOBindingsTests.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		EDD1BF0E1A1F090700BA45EA /* Binding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = Binding.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,7 +107,7 @@
 				EDD1BF0E1A1F090700BA45EA /* Binding.swift */,
 				EDACE4FD1A245C9800B0C252 /* BindingProtocols.swift */,
 				EDB23AB01A20F5EC0031D284 /* EventSubscription.swift */,
-				EDD1BEF71A1F06B800BA45EA /* iosCocoaBindings.h */,
+				EDD1BEF71A1F06B800BA45EA /* SwiftBindings.h */,
 				ED288A851A257A4D00EABD82 /* KVOObservable.swift */,
 				ED288A821A2579C400EABD82 /* KVOProxyType.swift */,
 				EDB23AAD1A1F9E490031D284 /* Observable.swift */,
@@ -151,7 +151,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EDD1BEF81A1F06B800BA45EA /* iosCocoaBindings.h in Headers */,
+				EDD1BEF81A1F06B800BA45EA /* SwiftBindings.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
