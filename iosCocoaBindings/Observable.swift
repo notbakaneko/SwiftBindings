@@ -48,7 +48,7 @@ class Subscribers<T> {
 }
 
 
-public class Observable<T>: AnyObservable {
+public class Observable<T>: MutableObservable {
     public typealias ValueType = T
     var beforeValueChange = Subscribers<ValueType>(.Before)
     var afterValueChange = Subscribers<ValueType>(.After)

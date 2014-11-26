@@ -11,20 +11,13 @@ import XCTest
 
 @objc
 class TargetObject: NSObject {
-    dynamic var string: NSString?
-    var int: NSInteger?
+    dynamic var string: NSString = "not an empty string"
+    dynamic var int: NSInteger = 0
 }
 
-class SourceObject {
-    var string: Observable<String?> = Observable<String?>(nil)
-}
 
 
 class iosCocoaBindingsTests: XCTestCase {
-
-//    var target: TargetObject?
-//    var source: SourceObject?
-
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -35,15 +28,44 @@ class iosCocoaBindingsTests: XCTestCase {
         super.tearDown()
     }
 
-    func test_derp() {
+    func test_kvoObservable() {
         let source = TargetObject()
         let observableSource = KVOObservable<String>(source, "string")
 
         observableSource.subscribe(.After) {
             debugPrintln("changing \($0.oldValue) to \($0.newValue)")
+            XCTAssert($0.oldValue == "not an empty string")
+            XCTAssert($0.newValue == "the quick brown fox jumped over the lazy dog")
+            XCTAssert(source.string == $0.newValue)
         }
 
-        source.string = "asd"
+        source.string = "the quick brown fox jumped over the lazy dog"
         observableSource.unobserve()
+    }
+
+    func test_nsobjectBinding() {
+        let source = TargetObject()
+        source.string = "a string"
+        let observableSource = KVOObservable<String>(source, "string")
+        let target = TargetObject()
+        target.string = "a different string"
+        let observableTarget = KVOObservable<String>(target, "string")
+
+        let binding = BasicBinding(observableSource, observableTarget)
+
+
+        XCTAssertNotNil(source.string)
+        XCTAssertNotNil(target.string)
+        XCTAssert(!source.string.isEqualToString(target.string))
+
+        source.string = "asd"
+
+        XCTAssertNotNil(source.string)
+        XCTAssertNotNil(target.string)
+        XCTAssert(source.string.isEqualToString(target.string))
+        XCTAssert(target.string.isEqualToString("asd"))
+
+        observableSource.unobserve()
+
     }
 }

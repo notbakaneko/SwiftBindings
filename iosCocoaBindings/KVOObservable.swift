@@ -10,8 +10,8 @@ import Foundation
 
 
 private var proxyContext = 0
-public class KVOObservable<T>: AnyObservable, KVOProxyType {
-    typealias ValueType = T?
+public class KVOObservable<T>: MutableObservable, KVOProxyType {
+    typealias ValueType = T
     var beforeValueChange = Subscribers<ValueType>(.Before)
     var afterValueChange = Subscribers<ValueType>(.After)
 
@@ -19,12 +19,17 @@ public class KVOObservable<T>: AnyObservable, KVOProxyType {
     private var object: AnyObject
     private var keyPath: String
 
-    public var transform: AnyObject -> T? = {
-        return $0 as? T
+    public var transform: AnyObject -> T = {
+        return $0 as T
     }
 
     public var value: ValueType {
-        return object.valueForKey(keyPath) as? T
+        get {
+            return object.valueForKey(keyPath) as T
+        }
+        set {
+            object.setValue(newValue as NSObject, forKey: keyPath)
+        }
     }
 
     func willSetValue(newValue: ValueType, _ oldValue: ValueType) {
@@ -65,11 +70,9 @@ public class KVOObservable<T>: AnyObservable, KVOProxyType {
     }
 
     func observeValueForKeyPath(keyPath: String, ofObject object: AnyObject, change: [NSObject : AnyObject], context: UnsafeMutablePointer<Void>) {
-
         let oldValue: AnyObject = change[NSKeyValueChangeOldKey]!
         let newValue: AnyObject = change[NSKeyValueChangeNewKey]!
-        let valueChange = (transform(oldValue), transform(newValue))
-        debugPrintln(valueChange)
+        didSetValue(transform(newValue), transform(oldValue))
     }
 
     public func unobserve() {
