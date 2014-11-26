@@ -49,7 +49,7 @@ class Subscribers<T> {
 
 
 public class Observable<T>: AnyObservable {
-    public typealias ValueType = T?
+    public typealias ValueType = T
     var beforeValueChange = Subscribers<ValueType>(.Before)
     var afterValueChange = Subscribers<ValueType>(.After)
 
