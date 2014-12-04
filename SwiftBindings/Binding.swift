@@ -49,7 +49,7 @@ public class BasicBinding<T: Equatable, O1: MutableObservable, O2: MutableObserv
         }
     }
 
-    func unbind() {
+    public func unbind() {
         if let sub = ss {
             self.source -= sub
         }
@@ -57,6 +57,10 @@ public class BasicBinding<T: Equatable, O1: MutableObservable, O2: MutableObserv
         if let sub = st {
             self.target -= sub
         }
+    }
+
+    deinit {
+        unbind()
     }
 }
 

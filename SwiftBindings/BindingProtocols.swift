@@ -8,8 +8,11 @@
 
 import Foundation
 
+public protocol Bindable {
+    func unbind()
+}
 
-protocol AnyBinding {
+protocol AnyBinding: Bindable {
     typealias SourceType
     typealias TargetType
 }
