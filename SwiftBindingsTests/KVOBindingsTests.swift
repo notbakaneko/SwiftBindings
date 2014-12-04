@@ -6,18 +6,15 @@
 //  Copyright (c) 2014 nekonyan. All rights reserved.
 //
 
-import UIKit
 import XCTest
 
 @objc
-class TargetObject: NSObject {
-    dynamic var string: NSString = "not an empty string"
-    dynamic var int: NSInteger = 0
-}
-
-
-
 class SwiftBindingsTests: XCTestCase {
+    class TargetObject: NSObject {
+        dynamic var string: NSString = "not an empty string"
+        dynamic var int: NSInteger = 0
+    }
+
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.

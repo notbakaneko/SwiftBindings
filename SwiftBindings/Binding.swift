@@ -15,18 +15,19 @@ let bindingContext = UnsafeMutablePointer<()>()
 /**
 *  Swift-based basic 2-way binding.
 */
-public class BasicBinding<T: Equatable, O: MutableObservable where O.ValueType == T>: AnyBinding {
+public class BasicBinding<T: Equatable, O1: MutableObservable, O2: MutableObservable where O1.ValueType == T, O2.ValueType == T>: AnyBinding {
     typealias SourceType = T
     typealias TargetType = T
-    typealias ObservableType = O
+    typealias SourceObservableType = O1
+    typealias TargetObservableType = O2
 
-    var source: ObservableType
-    var target: ObservableType
+    var source: O1
+    var target: O2
 
     var ss: EventSubscription<ValueChange<T>>?
     var st: EventSubscription<ValueChange<T>>?
 
-    public init(_ source: ObservableType, _ target: ObservableType) {
+    public init(_ source: SourceObservableType, _ target: TargetObservableType) {
         self.source = source
         self.target = target
 
@@ -58,3 +59,11 @@ public class BasicBinding<T: Equatable, O: MutableObservable where O.ValueType =
         }
     }
 }
+
+
+public class EquivalentClassBinding<T: Equatable, O: MutableObservable where O.ValueType == T> : BasicBinding<T, O, O> {
+    override public init(_ source: O, _ target: O) {
+        super.init(source, target)
+    }
+}
+

@@ -55,4 +55,20 @@ class BindingTest: XCTestCase {
         XCTAssertNotNil(target.value)
         XCTAssert(source.value != target.value)
     }
+
+    func test_singleType_Binding() {
+        var source = Observable<Int>(1)
+        var target = Observable<Int>(-1)
+        let binding = EquivalentClassBinding(source, target)
+
+        XCTAssertNotNil(source.value)
+        XCTAssertNotNil(target.value)
+        XCTAssert(source.value != target.value)
+
+        source.value = 5
+
+        XCTAssertNotNil(source.value)
+        XCTAssertNotNil(target.value)
+        XCTAssert(source.value == target.value)
+    }
 }

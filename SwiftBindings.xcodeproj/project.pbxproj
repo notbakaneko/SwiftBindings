@@ -18,6 +18,7 @@
 		ED288A8E1A257ACA00EABD82 /* ValueChangeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDACE4F71A2429DA00B0C252 /* ValueChangeType.swift */; };
 		ED288A8F1A257ACA00EABD82 /* KVOProxyType.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED288A821A2579C400EABD82 /* KVOProxyType.swift */; };
 		ED288A901A257ACA00EABD82 /* KVOObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED288A851A257A4D00EABD82 /* KVOObservable.swift */; };
+		ED3B7A0C1A3009560087DA3A /* MixedBindingsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED3B7A0B1A3009560087DA3A /* MixedBindingsTest.swift */; };
 		ED72FEA01A24679300187866 /* AnyObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED72FE9F1A24679300187866 /* AnyObservable.swift */; };
 		ED72FEA31A246D3200187866 /* BindingTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED72FEA21A246D3200187866 /* BindingTest.swift */; };
 		EDACE4F81A2429DA00B0C252 /* ValueChangeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDACE4F71A2429DA00B0C252 /* ValueChangeType.swift */; };
@@ -45,6 +46,7 @@
 /* Begin PBXFileReference section */
 		ED288A821A2579C400EABD82 /* KVOProxyType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = KVOProxyType.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		ED288A851A257A4D00EABD82 /* KVOObservable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = KVOObservable.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		ED3B7A0B1A3009560087DA3A /* MixedBindingsTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MixedBindingsTest.swift; sourceTree = "<group>"; };
 		ED72FE9F1A24679300187866 /* AnyObservable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = AnyObservable.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		ED72FEA21A246D3200187866 /* BindingTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = BindingTest.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		EDACE4F71A2429DA00B0C252 /* ValueChangeType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ValueChangeType.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -130,6 +132,7 @@
 			children = (
 				EDD1BF041A1F06B800BA45EA /* KVOBindingsTests.swift */,
 				ED72FEA21A246D3200187866 /* BindingTest.swift */,
+				ED3B7A0B1A3009560087DA3A /* MixedBindingsTest.swift */,
 				EDB23AAB1A1F9E240031D284 /* ObservableTest.swift */,
 				EDD1BF021A1F06B800BA45EA /* Supporting Files */,
 			);
@@ -267,6 +270,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED3B7A0C1A3009560087DA3A /* MixedBindingsTest.swift in Sources */,
 				ED288A881A257ABF00EABD82 /* Observable.swift in Sources */,
 				ED288A8E1A257ACA00EABD82 /* ValueChangeType.swift in Sources */,
 				ED288A8F1A257ACA00EABD82 /* KVOProxyType.swift in Sources */,
