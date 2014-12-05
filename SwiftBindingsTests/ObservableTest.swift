@@ -54,6 +54,17 @@ class ObservableTest: XCTestCase {
         int.value = 2
     }
 
+    func test_observableOptional() {
+        var o = Observable<Int>(1)
+
+        let sub = o += {
+            debugPrintln("changing \($0.oldValue) to \($0.newValue)")
+            XCTAssertNil(o.value)
+        }
+
+        o.value = nil
+    }
+
     func test_whenAddingAndRemovingSubscription_afterValueChange() {
         let a = TestClass()
 
