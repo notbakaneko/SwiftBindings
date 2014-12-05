@@ -11,12 +11,12 @@ import Foundation
 
 public protocol AnyValueChange {
     typealias ValueType
-    var oldValue: ValueType { get }
-    var newValue: ValueType { get }
+    var oldValue: ValueType? { get }
+    var newValue: ValueType? { get }
 }
 
 public struct ValueChange<T> : AnyValueChange {
     typealias ValueType = T
-    public let oldValue: ValueType
-    public let newValue: ValueType
+    public let oldValue: ValueType?
+    public let newValue: ValueType?
 }

@@ -13,7 +13,7 @@ import Foundation
 public protocol AnyObservable {
     typealias ValueType
 
-    var value: ValueType { get }
+    var value: ValueType? { get }
 
     func subscribe(type: ValueChangeType, observer: ValueChange<ValueType> -> ()) -> EventSubscription<ValueChange<ValueType>>
     func unsubscribe(subscription: EventSubscription<ValueChange<ValueType>>)
@@ -21,7 +21,7 @@ public protocol AnyObservable {
 
 
 public protocol MutableObservable: AnyObservable {
-    var value: ValueType { get set }
+    var value: ValueType? { get set }
 }
 
 
@@ -58,7 +58,7 @@ Convenience operator to assign a value to an observable object.
 :param: observable The mutable observable object to assign a value to.
 :param: value      The value to assign.
 */
-public func <- <O: MutableObservable, T where O.ValueType == T>(inout observable: O, value: T) {
+public func <- <O: MutableObservable, T where O.ValueType == T>(inout observable: O, value: T?) {
     observable.value = value
 }
 
@@ -68,6 +68,6 @@ Convenience operator to assign a value from an observable object.
 :param: value      The value to assign to.
 :param: observable The observable object to assign the value from.
 */
-public func <- <O: AnyObservable, T where O.ValueType == T>(inout value: T, observable: O) {
+public func <- <O: AnyObservable, T where O.ValueType == T>(inout value: T?, observable: O) {
     value = observable.value
 }
