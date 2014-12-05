@@ -49,3 +49,25 @@ o -= subscription
 public func -= <T: AnyObservable>(inout observable: T, subscription: EventSubscription<ValueChange<T.ValueType>>) {
     observable.unsubscribe(subscription)
 }
+
+
+infix operator <- { associativity none assignment }
+/**
+Convenience operator to assign a value to an observable object.
+
+:param: observable The mutable observable object to assign a value to.
+:param: value      The value to assign.
+*/
+public func <- <O: MutableObservable, T where O.ValueType == T>(inout observable: O, value: T) {
+    observable.value = value
+}
+
+/**
+Convenience operator to assign a value from an observable object.
+
+:param: value      The value to assign to.
+:param: observable The observable object to assign the value from.
+*/
+public func <- <O: AnyObservable, T where O.ValueType == T>(inout value: T, observable: O) {
+    value = observable.value
+}
