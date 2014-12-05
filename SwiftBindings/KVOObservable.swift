@@ -23,21 +23,21 @@ public class KVOObservable<T>: MutableObservable, KVOProxyType {
         return $0 as T
     }
 
-    public var value: ValueType {
+    public var value: ValueType? {
         get {
-            return object.valueForKey(keyPath) as T
+            return object.valueForKey(keyPath) as? T
         }
         set {
             object.setValue(newValue as NSObject, forKey: keyPath)
         }
     }
 
-    func willSetValue(newValue: ValueType, _ oldValue: ValueType) {
+    func willSetValue(newValue: ValueType?, _ oldValue: ValueType?) {
         let change = ValueChange(oldValue: oldValue, newValue: newValue)
         beforeValueChange.notify(change)
     }
 
-    func didSetValue(newValue: ValueType, _ oldValue: ValueType) {
+    func didSetValue(newValue: ValueType?, _ oldValue: ValueType?) {
         let change = ValueChange(oldValue: oldValue, newValue: newValue)
         afterValueChange.notify(change)
     }

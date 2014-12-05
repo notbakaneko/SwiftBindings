@@ -53,17 +53,17 @@ public class Observable<T>: MutableObservable {
     var beforeValueChange = Subscribers<ValueType>(.Before)
     var afterValueChange = Subscribers<ValueType>(.After)
 
-    public var value: ValueType {
+    public var value: ValueType? {
         willSet { willSetValue(newValue, value) }
         didSet { didSetValue(value, oldValue) }
     }
 
-    func willSetValue(newValue: ValueType, _ oldValue: ValueType) {
+    func willSetValue(newValue: ValueType?, _ oldValue: ValueType?) {
         let change = ValueChange(oldValue: oldValue, newValue: newValue)
         beforeValueChange.notify(change)
     }
 
-    func didSetValue(newValue: ValueType, _ oldValue: ValueType) {
+    func didSetValue(newValue: ValueType?, _ oldValue: ValueType?) {
         let change = ValueChange(oldValue: oldValue, newValue: newValue)
         afterValueChange.notify(change)
     }
@@ -86,7 +86,7 @@ public class Observable<T>: MutableObservable {
         }
     }
 
-    public init(_ value: ValueType) {
+    public init(_ value: ValueType?) {
         self.value = value
     }
 }

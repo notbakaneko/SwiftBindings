@@ -63,6 +63,5 @@ class SwiftBindingsTests: XCTestCase {
         XCTAssert(target.string.isEqualToString("asd"))
 
         observableSource.unobserve()
-
     }
 }
