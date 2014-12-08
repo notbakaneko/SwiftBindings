@@ -37,14 +37,14 @@ public class BasicBinding<T: Equatable, O1: MutableObservable, O2: MutableObserv
     }
 
     func sourceObserver(change: ValueChange<T>) {
-        debugPrintln("changing \(change.oldValue) to \(change.newValue), source: \(source.value)")
+//        debugPrintln("changing \(change.oldValue) to \(change.newValue), source: \(source.value)")
         if target.value != change.newValue {
             target.value = change.newValue
         }
     }
 
     func targetObserver(change: ValueChange<T>) {
-        debugPrintln("changing \(change.oldValue) to \(change.newValue), target: \(target.value)")
+//        debugPrintln("changing \(change.oldValue) to \(change.newValue), target: \(target.value)")
         if source.value != change.newValue {
             source.value = change.newValue
         }
