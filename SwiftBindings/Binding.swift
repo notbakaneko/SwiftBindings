@@ -30,6 +30,7 @@ public class BasicBinding<T: Equatable, O1: MutableObservable, O2: MutableObserv
     public init(_ source: SourceObservableType, _ target: TargetObservableType) {
         self.source = source
         self.target = target
+        self.target.value = self.source.value   // initialize target value to source value.
 
         self.ss = self.source.subscribe(.After, observer: sourceObserver)
         self.st = self.target.subscribe(.After, observer: targetObserver)

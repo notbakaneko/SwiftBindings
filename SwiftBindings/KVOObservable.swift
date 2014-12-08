@@ -19,8 +19,8 @@ public class KVOObservable<T>: MutableObservable, KVOProxyType {
     private var object: AnyObject
     private var keyPath: String
 
-    public var transform: AnyObject -> T = {
-        return $0 as T
+    public var transform: AnyObject -> T? = {
+        return $0 as? T
     }
 
     public var value: ValueType? {
@@ -28,7 +28,7 @@ public class KVOObservable<T>: MutableObservable, KVOProxyType {
             return object.valueForKey(keyPath) as? T
         }
         set {
-            object.setValue(newValue as NSObject, forKey: keyPath)
+            object.setValue(newValue as? NSObject, forKey: keyPath)
         }
     }
 

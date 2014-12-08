@@ -8,7 +8,7 @@
 
 import XCTest
 
-@objc
+
 class SwiftBindingsTests: XCTestCase {
     class TargetObject: NSObject {
         dynamic var string: NSString = "not an empty string"
@@ -53,7 +53,7 @@ class SwiftBindingsTests: XCTestCase {
 
         XCTAssertNotNil(source.string)
         XCTAssertNotNil(target.string)
-        XCTAssert(!source.string.isEqualToString(target.string))
+        XCTAssert(source.string.isEqualToString(target.string))
 
         source.string = "asd"
 
