@@ -37,7 +37,7 @@ class MixedBindingsTest: XCTestCase {
 
         XCTAssertNotNil(source.string)
         XCTAssertNotNil(target.value)
-        XCTAssert(!source.string.isEqualToString(target.value!))
+        XCTAssert(source.string.isEqualToString(target.value!))
 
         source.string = "asd"
 
@@ -62,7 +62,7 @@ class MixedBindingsTest: XCTestCase {
 
         XCTAssertNotNil(source.value)
         XCTAssertNotNil(target.string)
-        XCTAssert(source.value != target.string)
+        XCTAssert(source.value == target.string)
 
         source.value = "asd"
 

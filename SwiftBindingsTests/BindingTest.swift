@@ -30,7 +30,7 @@ class BindingTest: XCTestCase {
 
         XCTAssertNotNil(source.value)
         XCTAssertNotNil(target.value)
-        XCTAssert(source.value != target.value)
+        XCTAssert(source.value == target.value)
 
         source.value = 5
 
@@ -46,7 +46,7 @@ class BindingTest: XCTestCase {
 
         XCTAssertNotNil(source.value)
         XCTAssertNotNil(target.value)
-        XCTAssert(source.value != target.value)
+        XCTAssert(source.value == target.value)
 
         binding.unbind()
         source.value = 5
@@ -63,7 +63,7 @@ class BindingTest: XCTestCase {
 
         XCTAssertNotNil(source.value)
         XCTAssertNotNil(target.value)
-        XCTAssert(source.value != target.value)
+        XCTAssert(source.value == target.value)
 
         source.value = 5
 

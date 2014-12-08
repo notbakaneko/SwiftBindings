@@ -8,6 +8,7 @@
 
 import XCTest
 
+
 class ObservableTest: XCTestCase {
     class TestClass {
         var string = Observable<String>("")
@@ -22,6 +23,10 @@ class ObservableTest: XCTestCase {
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
+    }
+
+    func test_a() {
+
     }
 
     func test_observable() {
