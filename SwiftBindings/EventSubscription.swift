@@ -13,6 +13,7 @@ public protocol AnyEventSubscription : Equatable {
     typealias EventHandler
 }
 
+// TODO: implicitly hold a weak reference to the subscriber so we can auto unsubscribe when out of scope?
 public class EventSubscription<T: AnyValueChange>: AnyEventSubscription {
     typealias EventHandler = T -> ()
 
