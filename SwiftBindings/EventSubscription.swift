@@ -11,11 +11,13 @@ import Foundation
 
 public protocol AnyEventSubscription : Equatable {
     typealias EventHandler
+    typealias ValueChange
 }
 
 // TODO: implicitly hold a weak reference to the subscriber so we can auto unsubscribe when out of scope?
-public class EventSubscription<T: AnyValueChange>: AnyEventSubscription {
+public class EventSubscription<T>: AnyEventSubscription {
     typealias EventHandler = T -> ()
+    typealias ValueChange = T
 
     let type: ValueChangeType
     let handler: EventHandler

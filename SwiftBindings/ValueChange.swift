@@ -17,6 +17,6 @@ public protocol AnyValueChange {
 
 public struct ValueChange<T> : AnyValueChange {
     typealias ValueType = T
-    public let oldValue: ValueType?
-    public let newValue: ValueType?
+    public var oldValue: ValueType?
+    public var newValue: ValueType?
 }
