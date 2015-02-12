@@ -12,11 +12,12 @@ import Foundation
 
 public protocol AnyObservable {
     typealias ValueType
+    typealias ObservedValueChange
 
     var value: ValueType? { get }
 
-    func subscribe(type: ValueChangeType, observer: ValueChange<ValueType> -> ()) -> EventSubscription<ValueChange<ValueType>>
-    func unsubscribe(subscription: EventSubscription<ValueChange<ValueType>>)
+    func subscribe(type: ValueChangeType, _ observer: ObservedValueChange -> ()) -> EventSubscription<ObservedValueChange>
+    func unsubscribe(subscription: EventSubscription<ObservedValueChange>)
 }
 
 
@@ -35,8 +36,8 @@ o += { change in
 
 :returns: An object of the event subscription.
 */
-public func += <T: AnyObservable>(inout observable: T, observer: ValueChange<T.ValueType> -> ()) -> EventSubscription<ValueChange<T.ValueType>> {
-    return observable.subscribe(.After, observer)
+public func += <T: AnyObservable, V where V == T.ObservedValueChange>(inout observable: T, observer: V -> ()) -> EventSubscription<V> {
+    return observable.subscribe(ValueChangeType.After, observer)
 }
 
 /**
@@ -46,7 +47,7 @@ o -= subscription
 :param: observable   The object to stop observing.
 :param: subscription The subscription object that was created from observing observable.
 */
-public func -= <T: AnyObservable>(inout observable: T, subscription: EventSubscription<ValueChange<T.ValueType>>) {
+public func -= <T: AnyObservable, V where V == T.ObservedValueChange>(inout observable: T, subscription: EventSubscription<V>) {
     observable.unsubscribe(subscription)
 }
 

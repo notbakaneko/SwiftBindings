@@ -12,8 +12,11 @@ import Foundation
 private var proxyContext = 0
 public class KVOObservable<T>: MutableObservable, KVOProxyType {
     typealias ValueType = T
-    var beforeValueChange = Subscribers<ValueType>(.Before)
-    var afterValueChange = Subscribers<ValueType>(.After)
+    typealias ObservedValueChange = ValueChange<ValueType>
+    typealias EventHandler = ObservedValueChange -> ()
+
+    var beforeValueChange = Subscribers<ObservedValueChange, ValueType>(.Before)
+    var afterValueChange = Subscribers<ObservedValueChange, ValueType>(.After)
 
     private var kvoHandler: KVOHandler?
     private var object: AnyObject
@@ -43,7 +46,7 @@ public class KVOObservable<T>: MutableObservable, KVOProxyType {
     }
 
 
-    public func subscribe(type: ValueChangeType, observer: ValueChange<ValueType> -> ()) -> EventSubscription<ValueChange<ValueType>> {
+    public func subscribe(type: ValueChangeType, _ observer: ObservedValueChange -> ()) -> EventSubscription<ObservedValueChange> {
         switch type {
         case .Before:
             return beforeValueChange.append(observer)
@@ -52,7 +55,7 @@ public class KVOObservable<T>: MutableObservable, KVOProxyType {
         }
     }
 
-    public func unsubscribe(subscription: EventSubscription<ValueChange<ValueType>>) {
+    public func unsubscribe(subscription: EventSubscription<ObservedValueChange>) {
         switch subscription.type {
         case .Before:
             beforeValueChange.remove(subscription)

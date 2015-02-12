@@ -53,13 +53,13 @@ class SwiftBindingsTests: XCTestCase {
 
         XCTAssertNotNil(source.string)
         XCTAssertNotNil(target.string)
-        XCTAssert(source.string.isEqualToString(target.string))
+        XCTAssert(source.string.isEqualToString(target.string as! String))
 
         source.string = "asd"
 
         XCTAssertNotNil(source.string)
         XCTAssertNotNil(target.string)
-        XCTAssert(source.string.isEqualToString(target.string))
+        XCTAssert(source.string.isEqualToString(target.string as! String))
         XCTAssert(target.string.isEqualToString("asd"))
 
         observableSource.unobserve()
